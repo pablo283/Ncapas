@@ -1,0 +1,90 @@
+﻿@model List<ML.Producto>
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (null != TempData["LogInMessage"])
+{
+    <script type="">
+            alert('@TempData["LogInMessage"]');
+    </script>
+}
+
+<center><h1>Productos</h1></center>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("ListProduct", "Carrito", FormMethod.Post))
+            {
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail" style="width:250px;">
+                            @Html.HiddenFor(@model => @model[i].IdProducto)
+
+                            @if (Model[i].Imagen == null)
+                            {
+                                <img style="height:250px; width:250px;" src="~/DEFAULT.jpg" class="img-thumbnail">
+                            }
+                            else
+                            {
+                                <img style="height: 250px; width: 250px;" src="data:image/jpeg;base64,@Convert.ToBase64String(@Model[i].Imagen)" class="img-thumbnail" />
+                              
+                            }
+
+                            <div class="caption">
+                                <div class="row">
+                                    <div class="col-md-7 col-xs-7">
+                                        <h3>@Model[i].Nombre</h3>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-6 prince">
+                                        <h3>
+                                            <label>&#36; @Model[i].PrecioUnitario</label>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-1">
+                               
+                                    <div class="col-md-6">
+                                        <a href="@Url.Action("AddProduct", "Carrito", new { id = Model[i].IdProducto })"> <img src="@Url.Content("~/addCar.jpg")" width="100" height="100" /> </a>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://dl.dropboxusercontect.com/s/04phecnfzta03mt/vflot.js"></script>
+<style type='text/css'>
+    #anuncio {
+        position: absolute;
+        padding: 2px;
+        padding-top: 15px;
+        width: 400px;
+        visibility: hidden;
+        z-index: 200;
+    }
+
+    #contcpa2 {
+        background: #fff;
+        border: 2px solid #eaeaea;
+        color: #333;
+        padding: 4px;
+    }
+</style>
+
+
+

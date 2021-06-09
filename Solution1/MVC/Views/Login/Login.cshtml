@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ML.Usuario
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h4>Inicio de Sesión</h4>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+
+
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Usuario" }) @*Caja de texto*@
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.Contrasenia, new { @class = "form-control", placeholder = "Password", type = "password" }) @*Caja de texto*@
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="form-group">
+
+
+                    <div class="col-md-offset-0 col-md-7">
+
+                        <input type="submit" value="Buscar" class="btn btn-success" />
+
+
+
+                        @Html.ActionLink("Registrarme", "Add", "Login", htmlAttributes: new { @class = "btn btn-success" })
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+            </div>
+        }
+
+    </div>
+</div>

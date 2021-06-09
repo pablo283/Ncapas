@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PGonzalezNCapaModelStoreContainer" CdmEntityContainer="PGonzalezNCapaEntities">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentoes">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodoPagoes">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.MetodoPago">
+        <MappingFragment StoreEntitySet="MetodoPago">
+          <ScalarProperty Name="IdMetodoPago" ColumnName="IdMetodoPago" />
+          <ScalarProperty Name="Metodo" ColumnName="Metodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoSucursals">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.ProductoSucursal">
+        <MappingFragment StoreEntitySet="ProductoSucursal">
+          <ScalarProperty Name="IdProductoSucursal" ColumnName="IdProductoSucursal" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedors">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursals">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdMetodoPago" ColumnName="IdMetodoPago" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VentaProductoes">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.VentaProducto">
+        <MappingFragment StoreEntitySet="VentaProducto">
+          <ScalarProperty Name="IdVentaProducto" ColumnName="IdVentaProducto" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdVenta" ColumnName="IdVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DepartamentoAdd" FunctionName="PGonzalezNCapaModel.Store.DepartamentoAdd" />
+    <FunctionImportMapping FunctionImportName="DepartamentoDelete" FunctionName="PGonzalezNCapaModel.Store.DepartamentoDelete" />
+    <FunctionImportMapping FunctionImportName="DepartamentoUpdate" FunctionName="PGonzalezNCapaModel.Store.DepartamentoUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoDelete" FunctionName="PGonzalezNCapaModel.Store.ProductoDelete" />
+    <FunctionImportMapping FunctionImportName="VentaProductoAdd" FunctionName="PGonzalezNCapaModel.Store.VentaProductoAdd" />
+    <FunctionImportMapping FunctionImportName="DepartamentoGetById" FunctionName="PGonzalezNCapaModel.Store.DepartamentoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.DepartamentoGetById_Result">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AreaGetAll" FunctionName="PGonzalezNCapaModel.Store.AreaGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.AreaGetAll_Result">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProveedorGetAll" FunctionName="PGonzalezNCapaModel.Store.ProveedorGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.ProveedorGetAll_Result">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SucursalAdd" FunctionName="PGonzalezNCapaModel.Store.SucursalAdd" />
+    <FunctionImportMapping FunctionImportName="SucursalDelete" FunctionName="PGonzalezNCapaModel.Store.SucursalDelete" />
+    <FunctionImportMapping FunctionImportName="SucursalGetAll" FunctionName="PGonzalezNCapaModel.Store.SucursalGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.SucursalGetAll_Result">
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SucursalUpdate" FunctionName="PGonzalezNCapaModel.Store.SucursalUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoGetAll" FunctionName="PGonzalezNCapaModel.Store.ProductoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.ProductoGetAll_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="ProductoNombre" ColumnName="ProductoNombre" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="ProveedorNombre" ColumnName="ProveedorNombre" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductoUpdate" FunctionName="PGonzalezNCapaModel.Store.ProductoUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoGetById" FunctionName="PGonzalezNCapaModel.Store.ProductoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.ProductoGetById_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AreaGetById" FunctionName="PGonzalezNCapaModel.Store.AreaGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.AreaGetById_Result">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DepartamentoGetAll" FunctionName="PGonzalezNCapaModel.Store.DepartamentoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.DepartamentoGetAll_Result">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="DepartamentoNombre" ColumnName="DepartamentoNombre" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="AreaNombre" ColumnName="AreaNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductoAdd" FunctionName="PGonzalezNCapaModel.Store.ProductoAdd" />
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="PGonzalezNCapaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioAdd" FunctionName="PGonzalezNCapaModel.Store.UsuarioAdd" />
+    <FunctionImportMapping FunctionImportName="UsuarioDelete" FunctionName="PGonzalezNCapaModel.Store.UsuarioDelete" />
+    <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="PGonzalezNCapaModel.Store.UsuarioUpdate" />
+    <FunctionImportMapping FunctionImportName="UsuarioGetById" FunctionName="PGonzalezNCapaModel.Store.UsuarioGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.UsuarioGetById_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RolGetAll" FunctionName="PGonzalezNCapaModel.Store.RolGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.RolGetAll_Result">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioUpdateEstatus" FunctionName="PGonzalezNCapaModel.Store.UsuarioUpdateEstatus" />
+    <FunctionImportMapping FunctionImportName="UsuarioGetAll" FunctionName="PGonzalezNCapaModel.Store.UsuarioGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.UsuarioGetAll_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="RolNombre" ColumnName="RolNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsuarioGetBusquedaAbierta" FunctionName="PGonzalezNCapaModel.Store.UsuarioGetBusquedaAbierta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.UsuarioGetBusquedaAbierta_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="NumeroCelular" ColumnName="NumeroCelular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="IdDireccion" ColumnName="IdDireccion" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="RolNombre" ColumnName="RolNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VentaAdd" FunctionName="PGonzalezNCapaModel.Store.VentaAdd" />
+    <FunctionImportMapping FunctionImportName="UsuarioLogin" FunctionName="PGonzalezNCapaModel.Store.UsuarioLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PGonzalezNCapaModel.UsuarioLogin_Result">
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

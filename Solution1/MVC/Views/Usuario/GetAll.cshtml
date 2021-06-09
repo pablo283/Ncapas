@@ -1,0 +1,132 @@
+﻿<h2>Usuarios</h2>@model ML.Usuario
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*leer archivo *@
+<h2>Basic File Upload</h2>
+@using (Html.BeginForm("Index",
+                        "Usuario",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload File:</label>
+    <input type="file" name="file" id="file" /><br><br>
+    <input type="submit" value="Upload File" />
+    <br><br>
+    @ViewBag.Message
+}
+
+@*inicio busqueda abierta*@
+<br/>
+
+@using (Html.BeginForm("GetAll", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="row">
+
+        <div class="@(ViewBag.BusquedaAbiertaActiva)? True: " hidden" "" ">
+            <div class=" col-md-3">
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Nombre" })
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @placeholder = "ApellidoPaterno" })
+            @Html.ValidationMessageFor(model => model.ApellidoPaterno)
+        </div>
+        <div class="col-md-3">
+            @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @placeholder = "ApellidoMaterno" })
+            @Html.ValidationMessageFor(model => model.ApellidoMaterno)
+        </div>
+    </div>
+
+    <div class="col-md-1 @(ViewBag.BusquedaAbiertaActiva=="")? True: " hidden" "" "">
+        @*URL Action  método -ViewBag, Bandera BusquedaAbiertaActiva      *@
+        <input type="submit" value="Busqueda abierta" class="btn btn-info" />
+    </div>
+
+    <div class="col-md-1">
+        @*URL Action  método -ViewBag, Bandera BusquedaAbiertaDesactivar      *@
+        <input type="submit" value="Cancelar" class="btn btn-danger" />
+    </div>
+    </div>
+
+
+
+    <div class="row">
+
+    </div>
+
+
+
+    <br/>
+}
+@*fin busqueda abierta*@
+
+<div class="container">
+    <div class="row">
+        <div style="float:right; margin-bottom:1rem;">
+            @Html.ActionLink("+", "Form", "Usuario", htmlAttributes: new { @class = "btn btn-success" })
+        </div>
+
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <td>Editar</td>
+                    <td class="hidden">IdUsuario</td>
+                    <td>Nombre</td>
+                    <td>ApellidoPaterno</td>
+                    <td>ApellidoMaterno</td>
+                    <td>Contrasenia</td>
+                    <td>NumeroCelular</td>
+                    <td>Email</td>
+                    <td>FechaNacimiento</td>
+                    <td>Sexo</td>
+                    <td>Estatus</td>
+                    <td>IdDireccion</td>
+                    <td>NombreRol</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ML.Usuario usuario in Model.Usuarios)
+{
+    <tr>
+        <td><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Usuario", new { IdUsuario = usuario.IdUsuario })"></a></td>
+        <td class="hidden">@usuario.IdUsuario</td>
+        <td>@usuario.Nombre</td>
+        <td>@usuario.ApellidoPaterno</td>
+        <td>@usuario.ApellidoMaterno</td>
+        <td>@usuario.Contrasenia</td>
+
+        <td>@usuario.NumeroCelular</td>
+        <td>@usuario.Email</td>
+        <td>@usuario.FechaNacimiento</td>
+        <td>@usuario.Sexo</td>
+        <td>@usuario.Estatus</td>
+        <td>@usuario.IdDireccion</td>
+        <td>@usuario.Rol.Nombre</td>
+
+
+        @if (usuario.Estatus == true)
+            {
+              <td><a href="@Url.Action("UpdateStatus", "Usuario", new { IdUsuario = usuario.IdUsuario, Estatus = usuario.Estatus })"> <img src="@Url.Content("~/on.jpg")" />  </a></td>
+
+            }
+        else
+            {
+              <td><a href="@Url.Action("UpdateStatus", "Usuario", new { IdUsuario = usuario.IdUsuario, Estatus = usuario.Estatus })"> <img src="@Url.Content("~/off.jpg")" /> </a> </td>
+            }
+
+        <td>
+            <a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("Delete", "Usuario", new { IdUsuario= usuario.IdUsuario})" onclick="return confirm('Estas seguro que deseas eliminar este registro?');"></a>
+        </td>
+        </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

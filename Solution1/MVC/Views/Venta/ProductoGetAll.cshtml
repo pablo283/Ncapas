@@ -1,0 +1,47 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "ProductoGetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div style="float:right; margin-bottom:1rem;">
+            @Html.ActionLink("+", "Form", "Producto", htmlAttributes: new { @class = "btn btn-success" })
+        </div>
+    </div>
+</div>
+
+    <tbody>
+        <div class="row">
+            @foreach (ML.Producto producto in Model.Productos)
+{
+    <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <td><a class="btn btn-danger glyphicon glyphicon-trash" href="@Url.Action("Delete", "Producto", new { IdProducto= producto.IdProducto})" onclick="return confirm('Estas seguro que deseas eliminar este registro?');" ;></a></td>
+                <td><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Producto", new { IdProducto = producto.IdProducto })"></a></td>
+            </div>
+
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <img class="card-img-top" src="data:image/jpeg;base64,@Convert.ToBase64String(producto.Imagen)" style=" height:150px; width:150px;" alt="Card image cap">
+
+                    <li class="list-group-item">  <td>@producto.Nombre</td>  </li>
+                    <li class="list-group-item"> Precio:  <td>@producto.PrecioUnitario</td>  </li>
+                    <li class="list-group-item">Stock: <td>@producto.Stock</td>  </li>
+                    <li class="list-group-item"> Descripcion: <td>@producto.Descripcion</td> </li>
+                    <li class="list-group-item"> Proveedor:<td>@producto.Proveedor.Nombre</td>  </li>
+                    <li class="list-group-item"> Departamento: <td>@producto.Departamento.Nombre</td>  </li>
+                    <li class="list-group-item"> Area: <td>@producto.Departamento.Area.Nombre</td> </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}
+        </div>
+</tbody>

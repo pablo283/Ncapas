@@ -1,0 +1,285 @@
+﻿
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+
+@*<script src="~/Scripts/employee.js"></script>*@
+
+
+
+<div class="container">
+    <h2>Departamentos</h2>
+
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalFormulario" onclick=("ShowFormulario()")>Add departamento</button><br /><br />
+
+    <table id="Departamentos" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    IdDepartamento
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    IdArea
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+
+
+<div id="divFormulario">
+    <div class="modal fade" id="ModalFormulario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Agregar nuevo departamento</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Nombre:</label>
+                            <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
+                        </div>
+                        @*<div class="form-group">
+                            <label for="message-text" class="control-label">IdArea:</label>
+                            <<input type="text" class="form-control" id="txtIdArea" placeholder="IdArea">
+                        </div>*@
+
+                        <div class="form-group">
+
+                            <label class="control-label">Area</label>
+                            <select id="ddlAreas" name="serviceType" class="form-control">
+                                <option value=""></option>
+                            </select>
+
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="boton" type="submit" class="btn btn-success" title="Agregar" onclick="Add()">
+                        Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="mymodallabel">actualizar departamento</h4>
+            </div>
+
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">                   
+                        <input type="text" class="form-control" id="txtIdDepartamentoUpdate" placeholder="IdDepartamento" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtNombreUpdate" placeholder="Nombre" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="txtIdAreaUpdate" placeholder="IdArea" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="boton" type="submit" class="btn btn-success" title="Update" onclick="Update()">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-5">
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detalle</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>
+                            Acción completada con éxito
+                        </h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" value="Regresar" data-dismiss="modal">Regresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+   
+    
+    $(document).ready(function () {
+       GetAll();
+    });
+   
+  
+
+    function GetAll() {
+        $.ajax({
+            url: "http://localhost:51351/api/departamento",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                var html = '';
+                $.each(result.Objects, function (key, item) {
+                    html += '<tr>';
+                    html += '<td> <input width="20px"; data-toggle="modal" data-target="#ModalUpdate" onclick="return GetById(' + item.IdDepartamento + ')"  height="20px"; type="image" src="data:image/jpeg;base64,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" /> <td>';
+                    html += '<td>' + item.IdDepartamento + '</td>';
+                    html += '<td>' + item.Nombre + '</td>';
+                    html += '<td>' + item.Area.IdArea + '</td>';
+                    html += '<td> <a href="#" onclick="Delete(' + item.IdDepartamento + ')">Delete</a></td>';
+                    html += '</tr>';
+                });
+                $('.tbody').html(html);
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+
+        function ShowFormulario() {
+
+            GetAllArea();
+            $('#ModalFormulario').modal('show');
+           
+        }
+    }
+    function Delete(IdDepartamento) {
+        if (confirm("¿Estas seguro de eliminar la SubCategoria seleccionada?")) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:51351/api/departamento/Delete/" + IdDepartamento,
+             
+                success: function (result) {
+
+                    $('#myModal').modal('hide');
+                    GetAll();
+                 
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        };
+    };
+        
+    function Add() {
+
+        var subcategoria = {
+            Nombre: $('#txtNombre').val(),
+            Area:{
+                IdArea: $('#txtIdArea').val()
+            }        
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:51351/api/departamento/Add',
+            dataType: 'json',
+            data: subcategoria,
+            success: function (result) {                                                     
+                $('#ModalFormulario').toggle();
+                GetAll();
+            },
+            error: function (result) {
+                alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+            }
+        });
+    };
+
+    function GetById(IdDepartamento) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:51351/api/departamento/' + IdDepartamento,
+            success: function (result) {
+                $('#txtIdDepartamentoUpdate').val(result.Object.IdDepartamento);
+                $('#txtNombreUpdate').val(result.Object.Nombre);               
+                $('#txtIdAreaUpdate').val(result.Object.Area.IdArea);    
+                $('#ModalUpdate').modal('show');
+            },
+            error: function (result) {
+                alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+            }
+        });
+
+    }
+    function Update() {
+        var IdDepartamento = $('#txtIdDepartamentoUpdate').val();
+        var subcategoria = {
+            Nombre: $('#txtNombreUpdate').val(),
+            Area: {
+                IdArea: $('#txtIdAreaUpdate').val()
+            }
+        }
+
+        $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:51351/api/departamento/Update/' +   IdDepartamento,
+            datatype: 'json',
+            data: subcategoria,
+            success: function (result) {
+
+                GetAll();
+                Console(respond);
+            },
+            error: function (result) {
+                alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+            }
+        });
+
+    };
+    function GetAllArea()
+  {
+        $("#ddlAreas").empty();
+            $.ajax({
+                url: "http://localhost:51351/api/area",
+                type: "GET",        
+                success: function (result) {
+                    $("#ddlAreas").append('<option value="' + 0 + '">' + 'Seleccione una opción' + '</option>');
+                    $.each(result.Objects, function (i, area) {
+                        $("#ddlAreas").append('<option value="'
+                                                   + area.IdArea + '">'
+                                                   + area.Nombre + '</option>');
+                      });
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+</script>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12128838c3fc4d979048c29f7f650b51" Name="Diagram1">
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Area" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Cliente" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Departamento" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.MetodoPago" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Producto" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.ProductoSucursal" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Proveedor" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Rol" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Sucursal" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Venta" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.VentaProducto" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Departame__IdAre__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Venta__IdCliente__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Producto__IdDepa__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Venta__IdMetodoP__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Producto__IdProv__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__ProductoS__IdPro__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__VentaProd__IdPro__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__ProductoS__IdSuc__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__VentaProd__IdVen__123EB7A3" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PGonzalezNCapaModel.Usuario" Width="1.5" PointX="10" PointY="7.125" />
+        <AssociationConnector Association="PGonzalezNCapaModel.FK__Usuario__IdRol__7E02B4CC" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

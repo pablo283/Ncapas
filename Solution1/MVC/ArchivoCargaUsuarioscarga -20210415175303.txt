@@ -1,0 +1,15 @@
+1|Alfredo|Pérez|Torres|JHop98@|55822136|aptrr@gmail.com|2000-05-06|Masculino|True|1|1
+2|Fernando|Gonzalez|Jiménez|dHop48@|55677890|fgzjmz@hotmail.com|2000-03-05|Masculino|True|1|2
+3|Luis|Martinez|Pérez|JHrr43@|66788901|lmprrz2@gmail.com|2000-01-01|Masculino|True|1|2
+4|José|Robles|Torres|ARop98@|55644389|jrtrr@gmail.com|2000-08-07|Masculino|True|2|2
+5|Karla|Garcia|Higareda|TRop48@|55666777|krgrhig@gmail.com|2000-06-05|Femenino|True|2|2
+6|Lorena|Duran|Castro|JHop48@|55677665|lordurcas@gmail.com|2000-04-04|Femenino|True|2|2
+7|Jessica|Ramírez|Estrada|WHop98@|55433218|jessre@gmail.com|2000-03-02|Femenino|True|2|2
+8|Jimena|Zarate|Vélez|JHop38@|55647809|jzvlz@gmail.com|2000-08-07|Femenino|True|1|2
+9|Daniel|Garcia|Buendía|JWop98@|55433219|dgrbend@gmail.com|2000-08-07|Masculino|True|1|2
+10|Rubén|Núñez|López|JHop38@|55677821|rnnzlpz@gmail.com|2000-08-07|Masculino|True|1|1
+11|Jorge|Franco|Quiroz|JHocp98@|66577891|jfrqroz@gmail.com|2000-08-07|Masculino|True|1|2
+12|Gloria|Velazquez|Pérez|PLop98@|55677876|glvelzprz@gmail.com|2000-08-07|Femenino|True|1|2
+13|Wendy|Salgado|Olguín|JHpl98@|55677812|wdysgui@gmail.com|2000-08-07|Femenino|True|1|2
+14|Arturo|Frías|Robles|JHop38@|55655432|artfrrbo@gmail.com|2000-08-07|Masculino|True|1|2
+15|Francisco Javier|Torres|Duran|AQop98@|55677664|frjavetor@gmail.com|2000-08-07|Masculino|True|2|1
